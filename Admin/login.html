@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/logo-removebg.png">
+    <link href="../used libralies/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../used libralies/js/bootstrap.bundle.min.js"></script>
+    <script src="../used libralies/jquery-3.6.0.min.js"></script>
+    <title>Admin Login</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+        :root{
+            --text-color: rgb(12, 118, 84);
+        }
+        body{
+            background: black;
+        }
+        .form-group{
+            background: white;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            margin-top: 20%;
+            margin-left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 50%;
+            box-shadow: 0 0 8px gray;
+            border-radius: 5px;
+            overflow-y: auto;
+        }
+        #farmer-signup{
+            top: 7%;
+            height: 80%;
+        }
+        #farmer-login{
+            height: 55%;
+        }
+        .form-group h4{
+            background: var(--text-color);
+            color: white;
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+            padding: 3px;
+            font-family: 'Secular One', sans-serif;
+            font-size: 1.5vw;
+        }
+        .form-group p, button{
+            font-size: 1.2vw;
+        }
+        .form-group .form-control{
+            width: 90%;
+            margin-top: 2vw;
+            font-family: 'Signika Negative', sans-serif;
+            font-size: 1.1vw;
+        }
+        .form-control::placeholder{
+            color: #9c9c9c;
+        }
+        .form-group button{
+            margin-bottom: 1vw;
+        }
+        a{
+            text-decoration: none;
+            color: blue;
+            font-family: 'Signika Negative', sans-serif;
+            font-size: 1.2vw;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        @media only screen and (max-width: 900px){
+            body{
+                background-repeat: repeat;
+            }
+            .form-group{
+                top: 40%;
+                width: 90%;
+                height: 40%!important;
+            }
+            #farmer-login{
+                font-size: 3vw;
+            }
+            .form-group h4{
+                font-size: 5vw;
+            }
+            .form-group p, button{
+                font-size: 3vw;
+            }
+            .form-group p{
+                margin-top: 10%;
+            }
+            .form-group .form-control{
+                font-size: 3.5vw;
+            }
+            a{
+                font-size: 3vw;
+            }
+            #farmer-signup{
+                top: 40%;
+                font-size: 3vw;
+                height: 75%!important;
+            }
+        }
+    </style>
+    <div class="form-group" id="farmer-login" align="center">
+        <form action="server-login.php" method="post">
+            <h4>Admin Login</h4><br>
+            <input type="tel" placeholder="Enter your email..." class="form-control" name="email" required>
+            <input type="password" placeholder="Enter password..." class="form-control" name="password" required><br>
+            <button class="btn btn-outline-success form-control" type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        $(window).ready(function(){
+            $('#farmer-signup').hide();
+
+            $('#farmer-login #signup-link').on('click', function(){
+                $('#farmer-signup').fadeIn(800);
+                $('#farmer-login').hide();
+            });
+            $('#farmer-signup #login-link').on('click', function(){
+                $('#farmer-login').fadeIn(800);
+                $('#farmer-signup').hide();
+            });
+        });
+
+         //compare passwords
+         $('#signup-button').on('click', function(){
+            if($('.password').val() == $('.con-password').val()){
+                $('.password, .con-password').css('border-color', 'green');
+            }else{
+                $('#message').html('Password mismatched! recheck.').css('background', '#ffa5a5');
+                $('.con-password').css('border-color', 'red');
+                $('#signup-button').prop('disabled', true);
+            }
+            setInterval(function(){
+                if($('.password').val() == $('.con-password').val()){
+                    $('.password, .con-password').css('border-color', 'green');
+                    $('#signup-button').prop('disabled', false);
+                    $('#message').hide();
+                }
+            }, 1000);
+            });
+    </script>
+</body>
+</html>

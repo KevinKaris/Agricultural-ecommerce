@@ -1,0 +1,25 @@
+<style>
+    .loading-gif{
+        position: fixed;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+    }
+    .loading-gif h6{
+        font-size: 25px;
+    }
+    @media only screen and (max-width: 900px){
+        .loading-gif h6{
+            font-size: 30px;
+        }
+    }
+</style>
+<div class="loading-gif">
+    <h6><i class="fa fa-spinner fa-spin"></i></h6>
+</div>

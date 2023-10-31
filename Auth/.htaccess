@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+DirectoryIndex index.html
+RewriteRule ^fresetpassword$ fresetpassword.php [NC]
+RewriteRule ^bresetpassword$ bresetpassword.php [NC]
+
+</IfModule>

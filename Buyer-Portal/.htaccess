@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+Options -Indexes
+
+DirectoryIndex homepage.php
+RewriteRule ^home$ homepage.php [NC]
+RewriteRule ^profile$ buyer-profile.php [NC]
+RewriteRule ^request-product$ request-a-product.php [NC]
+RewriteRule ^requests$ buyer-requests.php [NC]
+RewriteRule ^help$ help.php [NC]
+RewriteRule ^about$ about-us.php [NC]
+RewriteRule ^prices$ prices.php [NC]
+RewriteRule ^product$ product-details.php [NC]
+RewriteRule ^request$ request-details.php [NC]
+RewriteRule ^edit$ edit_request.php [NC]
+RewriteRule ^category$ category.php [NC]
+RewriteRule ^search$ search.php [NC]
+RewriteRule ^transport$ transport.php [NC]
+
+</IfModule>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../used libralies/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../used libralies/js/bootstrap.bundle.min.js"></script>
+    <script src="../used libralies/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="../images/logo-removebg.png">
+    <title>Direct-link</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,600&display=swap');
+        h1{
+            font-size: 5vw;
+            font-family: 'Hahmlet', serif;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px black;
+        }
+        h1 img{
+            width: 7vw;
+            height: auto;
+        }
+        h2{
+            font-size: 3.2vw;
+            font-family: serif;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+        h4{
+            font-size: 2.3vw;
+            font-family: serif;
+            color: white;
+            width: 70%;
+        }
+        body{
+            overflow: hidden;
+        }
+        #background{
+            width: 100%;
+            height: 37vw;
+            background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .3)), url('../images/index1-1.jpg');
+            background-size: cover;
+        }
+        #slantedDivA{
+            position: relative;
+            background: rgb(12, 118, 84);
+            width: 100%;
+            height: 30vw;
+            box-sizing: border-box;
+        }
+        #slantedDivA::after{
+            position: absolute;
+            content: '';
+            margin: 0;
+            background: inherit;
+            width: 100%;
+            height: 100%;
+            transform-origin: top left;
+            transform: skewY(-7deg);
+        }
+        #slantedDivA #inside{
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            top: -5vw;
+            background: transparent;
+        }
+        #slantedDivA #inside section{
+            font-size: 1vw;
+            margin-top: 9vw;
+            width: 60%;
+        }
+        #buttons{
+            width: 50%;
+            margin-top: 2vw;
+            height: fit-content;
+            display: flex;
+            justify-content: space-around;
+        }
+        #buttons a{
+            color: white;
+            text-shadow: 1px 0 2px black;
+            border: 3px solid white;
+        }
+        #buttons a:hover{
+            color: black;
+            border: 4px solid black;
+        }
+        section{
+            color: #b8b8b8;
+        }
+        @media only screen and (max-width: 900px){
+            #background{
+                min-width: 100%;
+                height: 60vw;
+            }
+            #slantedDivA{
+                min-height: 150vw;
+            }
+            h1{
+                font-size: 7vw;
+            }
+            h4{
+                font-size: 4.2vw;
+                width: 90%;
+            }
+            h1 img{
+                width: 9vw;
+            }
+            #slantedDivA #inside section{
+                font-size: 2.5vw;
+            }
+            #buttons{
+                width: 90%;
+                margin-top: 50%;
+            }
+            #buttons a{
+                font-size: 4vw;
+            }
+            #background h2{
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                font-size: 4vmin;
+            }
+        }
+        </style>
+        <div id="background" align="center">
+            <h1><a href="../homepage.php"><img src="../images/logo-removebg.png" alt="logo"></a> Welcome to Direct-Link</h1><br>
+            <h4 align="center">We connect you directly to the market with intent of eliminating middlemen. We also also keep you updated on prices of various products in various markets.</h4><br><br>
+            <h2 align="center">Who are you?</h2>
+        </div>
+        <div id="slantedDivA">
+            <div id="inside" align="center">
+                <div id="buttons">
+                    <a href="../Farmer-Portal/farmer-login-signup.php" class="btn btn-lg bg-info border-3">Farmer</a>
+                    <a href="../Buyer-Portal/buyer-login-signup.php" class="btn btn-lg bg-info border-3">Buyer</a>
+                </div>
+                <section>
+                    <strong>NOTE: </strong>Not logging in or signing up limits what you can do in the site. Both farmer and buyer accounts have distinct features.
+                </section>
+            </div>
+        </div>
+    <script>
+        $('#background h1, h2, h4').hide();
+        $('#buttons a').hide();
+
+        $(window).ready(function(){
+            $('#background h1, h2, h4').fadeIn(2000);
+            $('#buttons a').fadeIn(2000);
+        });
+    </script>
+</body>
+</html>

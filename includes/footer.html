@@ -1,0 +1,103 @@
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/63222fcf37898912e969301c/1gcuolhtg';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+
+    var removeBranding = function() {
+    try {
+        var element = document.querySelector("iframe[title*=chat]:nth-child(2)").contentDocument.querySelector(`a[class*=tawk-branding]`)
+
+        if (element) {
+            element.remove()
+        }
+    } catch (e) {}
+}
+
+var tick = 100
+
+setInterval(removeBranding, tick)
+</script>
+    <!--End of Tawk.to Script-->
+
+<div class="footer col-12">
+    <div id="top" class="text-center pt-3"><img src="../images/logo-removebg.png" alt=""> Direct-Link</div>
+    <div id="middle" class="col-md-12 mt-5 row">
+        <div class="col-6">
+            <p>We connect farmers directly to buyers to eliminate exploitive middlemen. We also display average market prices for various products in various places. This is intended to hint the buyer and the farmer on deciding the price at which to buy a product and the price to sell the product at respectively. For more information, contact us.<br><br>
+            </p>
+
+            <div class="quick-links row">
+                <p style="color: rgb(187, 187, 187);">Quick Links</p><br>
+                <div class="col">
+                    <a href="../farmer/farmer-login-signup.php">Become a farmer</a>
+                    <a href="../buyer/buyer-login-signup.php">Become a buyer</a>
+                    <a href="../farmer/post">Post a product</a>
+                    <a href="../buyer/request">Request a product</a>
+                </div>
+                <div class="col">
+                    <a href="about">About us</a>
+                    <a href="help">Help</a>
+                </div>
+            </div>
+        </div>
+        <div id="socialmedia" class="text-center col-6 col">
+            <a href="#" class="fa-brands fa-facebook-f"></a>
+            <a href="#" class="fa-brands fa-twitter"></a>
+            <a href="#" class="fa-brands fa-instagram"></a>
+            <a href="#" class="fa-brands fa-linkedin"></a>
+            <a href="#" class="fa-brands fa-whatsapp"></a><br><br>
+            <div class="links">
+                <a href="tel:"><i class="fa-solid fa-phone"></i>&nbsp;+254 746182038</a>
+                <a href="mailto:"><i class="fas fa-envelope"></i>&nbsp;kevinkarish001@gmail.com</a>
+            </div><br>
+            <div class="subscription mt-5" align="center"><h6 class="text-light">Subscribe to our news letter</h6>
+                <form action="#" method="post" class="form-group w-100 col">
+                    <input type="email" name="subscription_name" class="form-control w-50" id="subscription_email" placeholder="Enter a valid email..."><div class="subscriptionEmailMessage w-50"></div>
+                    <button type="submit" id="subscription_submit" class="btn btn-danger text-light form-control mt-3 w-25" name="subscription_submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div id="bottom" class="text-center">All Rights Reserved</div>
+    <div class="newsletterInfo">
+        <div class="messageHolder"><span></span><button class="btn w-50 btn-success" style="color: #ffffff;">Okay</button></div>
+    </div>
+</div>
+<script>
+//handling subscription
+$(document).ready(function () {
+  $("#subscription_submit").on("click", function (e) {
+    if (!$("#subscription_email").val()) {
+        e.preventDefault();
+        $(".subscriptionEmailMessage").html("* Email required");
+        $(".subscriptionEmailMessage").show();
+    } else {
+        e.preventDefault();
+        $(".subscriptionEmailMessage").hide();
+        var email = $('#subscription_email').val();
+        $.ajax({
+            url: "../Ajax/subscription.php",
+            method: 'POST',
+            data: {email: email},
+            success: function (response) {
+                $("#subscription_email").val('');
+                $('.messageHolder span').html(response);
+                $('.newsletterInfo').fadeIn(500);
+
+                $('.messageHolder button').on('click', function(){
+                    $('.newsletterInfo').hide();
+                })
+            }
+        });
+    }
+  });
+});
+</script>
